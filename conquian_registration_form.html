@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28300\viewh16080\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs30 \cf0 \expnd0\expndtw0\kerning0
+\
+<!DOCTYPE HTML> \'a0\
+<html>\
+<head>\
+</head>\
+<body> \'a0\
+\
+<?php\
+$_fnameErr = $_lnameErr = $_emailErr = $_genderErr = $_passwordErr = $_pwVerifyErr = "";\
+$_fname = _lname = $_email = $_gender = $_password = $_verifypw = "";\
+\
+if ($_SERVER["REQUEST_METHOD"] == "POST") \{\
+  if (empty($_POST["_fname"])) \{\
+\'a0\'a0\'a0 $_fnameErr = \'93First Name is required";\
+\'a0 \} else \{\
+\'a0\'a0$_fname = test_input($_POST[\'93_fname\'94]);\
+  if (empty($_POST[\'93_lname"])) \{\
+\'a0\'a0\'a0 $_lnameErr = \'93Last Name is required";\
+\'a0 \} else \{$_lname = test_input($_POST[\'93_lname\'94]);\
+\'a0\'a0if (empty($_POST[\'93_email\'94])) \{\
+\'a0\'a0\'a0 $_emailErr = \'93Email is required";\
+\'a0 \} else \{$_email = test_input($_POST[\'93_email\'94]);\
+\'a0\'a0if (empty($_POST[\'93_password\'94])) \{\
+\'a0\'a0\'a0 $_passwordErr = \'93Password is required";\
+\'a0 \} else \{$_password = test_input($_POST[\'93_password\'94]);\
+\'a0\'a0if ($_POST[\'93_verifypw\'94] == $_POST[\'93_password\'94) \{\
+\'a0\'a0\'a0 $_pwVerifyErr = \'93Password and \'93Password verification did not match Please try again\'94;\
+\'a0 \} else \{$_verifypw = test_input($_POST[\'93_verifypw\'94]);\
+\'a0\'a0$_gender = test_input($_POST[\'93_gender"]);\
+\}\
+\
+function test_input($data) \{\
+\'a0\'a0$data = trim($data);\
+\'a0\'a0$data = stripslashes($data);\
+\'a0\'a0$data = htmlspecialchars($data);\
+\'a0\'a0return $data;\
+\}\
+?>\
+\
+<h2>PHP Form Validation Example</h2>\
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> \'a0\
+\'a0\'a0First Name: <input type="text" name="_fname">\
+\'a0\'a0<br><br>\
+  Last Name: <input type="text" name="_lname">\
+\'a0\'a0<br><br>\
+E-mail: <input type=\'93email\'94 name="_email">\
+\'a0\'a0<br><br>\
+  Password: <input type=\'93password\'94 name="_password">\
+\'a0\'a0<br><br>\
+Verify Password: <input type=\'93password\'94 name="_verifypw">\
+\'a0\'a0<br><br>\
+\'a0\'a0Gender:\
+\'a0\'a0<input type="radio" name="_gender" value="female">Female\
+\'a0\'a0<input type="radio" name="_gender" value="male">Male\
+\'a0\'a0<input type="radio" name="_gender" value="other">Other\
+\'a0\'a0<br><br>\
+  Familiarity with Game: <input type=\'93range\'94 id=\'93vol\'94 min=\'931\'94 max=\'933\'94>\
+  \
+\'a0\'a0\
+\'a0\'a0<input type="submit" name="submit" value="Submit"> \'a0\
+</form>\
+\
+<?php\
+echo "<h2>Your Input:</h2>";\
+echo $_fname;\
+echo "<br>";\
+echo $_lname;\
+echo "<br>";\
+echo $_email;\
+echo "<br>";\
+echo $_gender;\
+?>\
+\
+</body>\
+</html>}
