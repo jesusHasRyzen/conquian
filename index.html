@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+ <style>
+    canvas {
+         border: 1px solid #4f9099;
+        background-color: #1e84a3;
+            }
+ </style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    hi
+<body onload="startGame()">
+    <script>
+        function startGame() {
+            myGameArea.start();
+            cardOne = new component(140, 300, "red", 20, 420);
+            cardTwo = new component(140, 300, "red", 175, 420);
+            cardThree = new component(140, 300, "red", 331, 420);
+            cardFour = new component(140, 300, "red", 486, 420);
+            cardFive = new component(140, 300, "red", 642, 420);
+            cardSix = new component(140, 300, "red", 797, 420);
+            cardSeven = new component(140, 300, "red", 953, 420);
+            cardEight = new component(140, 300, "red", 1108, 420);
+            
+            deck = new component(140, 300, "blue", 1230, 200);
+
+        }
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+            this.canvas.width = 1400;
+            this.canvas.height = 700;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            }
+        }
+        function component(width, height, color, x, y) {
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;    
+            ctx = myGameArea.context;
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    </script>
+    
 </body>
 </html>
