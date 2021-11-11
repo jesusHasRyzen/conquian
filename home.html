@@ -33,7 +33,7 @@ function encryptPW(pw)
     const Http = new XMLHttpRequest();
     const url = 'https://realpython-example-app2.herokuapp.com/?username=' + pw;
     Http.open('GET', url);
-
+    Http.send();
     console.log(Http.responseType);
     console.log(Http.responseURL);
     console.log(Http.status);
@@ -44,6 +44,7 @@ function encryptPW(pw)
     const url2 = '/https://team-anything-microservice.herokuapp.com/get_images';
     Http2.responseType = 'json';
     Http2.open('GET', url2, true);
+    Http2.send();
     console.log(Http2.status);
     console.log("hi")
     var jsonResponse = Http2.response
