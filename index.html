@@ -11,20 +11,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src = "conquian.js" type= "module">
+        
+    </script>
 </head>
-<body onload="startGame()">
+<!-- <body onload="startGame()"> -->
+<body>
+    <div class = "Deck">52</div>
+    <br>
+    <form action ="/input_encrypted_via_microservice" method = "post">
+    <label for="username">Username</label>
+    <input type="text" id = "username" name="username"> 
+    <br>
+    <label for = "PW">Password</label>
+    <input type="text" id="PW" name = "PW">
+    <script>
+    // encryptPW(document.getElementById(PW))
+
+function encryptPW(pw)
+    {
+    const Http = new XMLHttpRequest();
+    const url = 'https://cors-anywhere.herokuappp.com/https://realpython-example-app2.herokuapp.com/?username=' + pw;
+    Http.open('GET', url);
+
+    console.log(Http.responseType);
+    console.log(Http.responseURL);
+    console.log(Http.status);
+
+    alert(Http.response)
+
+    const Http2 = new XMLHttpRequest();
+    const url2 = 'https://cors-anywhere.herokuappp.com/https://team-anything-microservice.herokuapp.com/get_images';
+    Http2.responseType = 'json';
+    Http2.open('GET', url2, true);
+    console.log(Http2.status);
+    console.log("hi")
+    var jsonResponse = Http2.response
+    console.log(jsonResponse)
+ 
+    }
+    </script>
+    <input type="button" value="encrypt" onclick="encryptPW(document.getElementById('PW').value)">
+</form>
+    <br>
+    <br>
+  
+
     <button class="HomeBtn">HOME</button>
     <button class="SettingsBtn">Settings</button>
-    <script>
+    <!-- <script>
         function startGame() {
             myGameArea.start();
-
-
-
-
-
-
-
             cardOne = new component(140, 300, "red", 20, 420);
             cardTwo = new component(140, 300, "green", 175, 420);
             cardThree = new component(140, 300, "pink", 331, 420);
@@ -68,10 +105,9 @@
                 ctx.fillStyle = color;
                 ctx.fillRect(this.x, this.y, this.width, this.height);
             }
-            ctx.fillStyle = color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
+            
         }
-    </script>
+    </script> -->
     
 </body>
 </html>
