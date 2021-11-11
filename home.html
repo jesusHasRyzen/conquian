@@ -42,7 +42,7 @@ function encryptPW()
     const Http2 = new XMLHttpRequest();
     const url2 = '/https://team-anything-microservice.herokuapp.com/get_images';
     Http2.responseType = 'json';
-    Http2.open('GET', url2, false);
+    Http2.open('GET', url2);
     Http2.send(null);
     console.log(Http2.status);
     console.log("hi")
