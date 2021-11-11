@@ -28,14 +28,12 @@
     <script>
     // encryptPW(document.getElementById(PW))
 
-function encryptPW(pw)
+function encryptPW()
     {
     const Http = new XMLHttpRequest();
     const url = 'https://realpython-example-app2.herokuapp.com/?username=' + pw;
     Http.open('GET', url);
     Http.send();
-    console.log(Http.responseType);
-    console.log(Http.responseURL);
     console.log(Http.status);
 
     alert(Http.response)
@@ -52,7 +50,7 @@ function encryptPW(pw)
  
     }
     </script>
-    <input type="button" value="encrypt" onclick="encryptPW(document.getElementById('PW').value)">
+    <input type="button" value="encrypt" onclick="encryptPW()">
 </form>
     <br>
     <br>
