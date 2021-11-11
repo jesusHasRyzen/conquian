@@ -31,7 +31,7 @@
 function encryptPW(pw)
     {
     const Http = new XMLHttpRequest();
-    const url = 'https://cors-anywhere.herokuappp.com/https://realpython-example-app2.herokuapp.com/?username=' + pw;
+    const url = 'https://realpython-example-app2.herokuapp.com/?username=' + pw;
     Http.open('GET', url);
 
     console.log(Http.responseType);
@@ -39,9 +39,9 @@ function encryptPW(pw)
     console.log(Http.status);
 
     alert(Http.response)
-
+    // https://cors-anywhere.herokuappp.com
     const Http2 = new XMLHttpRequest();
-    const url2 = 'https://cors-anywhere.herokuappp.com/https://team-anything-microservice.herokuapp.com/get_images';
+    const url2 = '/https://team-anything-microservice.herokuapp.com/get_images';
     Http2.responseType = 'json';
     Http2.open('GET', url2, true);
     console.log(Http2.status);
